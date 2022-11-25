@@ -9,6 +9,16 @@ const sendNotificationToClient = (tokens, data) => {
           title: data.title,
           body: data.body,
           click_action: data.route
+        },
+        android: {
+          priority: 'high'
+        },
+        apns: {
+          payload: {
+            aps: {
+              contentAvailable: true
+            }
+          }
         }
       })
       .then((response) => {
